@@ -1,0 +1,32 @@
+{
+  "rewrites": [
+    {
+      "source": "/auth/callback",
+      "destination": "/oauth-redirect.html"
+    },
+    {
+      "source": "/auth.html",
+      "destination": "/oauth-redirect.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/oauth-redirect.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/auth/callback",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
