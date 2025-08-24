@@ -1,0 +1,35 @@
+{
+  "functions": {
+    "app/**/*.{ts,tsx}": {
+      "runtime": "@vercel/node"
+    },
+    "oauth-server.js": {
+      "runtime": "@vercel/node"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/auth/callback",
+      "destination": "/oauth-redirect.html"
+    },
+    {
+      "source": "/oauth",
+      "destination": "/oauth-server.js"
+    },
+    {
+      "source": "/auth.html",
+      "destination": "/oauth-redirect.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/auth.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ]
+}
